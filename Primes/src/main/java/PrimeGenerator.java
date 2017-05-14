@@ -1,4 +1,4 @@
-public class GeneratePrimes {
+public class PrimeGenerator {
     public static int[] generatePrimes(int maxValue) {
         if (maxValue >= 2) {
             int s = maxValue + 1;
