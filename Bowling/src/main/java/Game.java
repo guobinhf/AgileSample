@@ -41,8 +41,12 @@ public class Game {
             if(strike()){
                 ball++;
                 score += 10 + netTwoBalls();
-            }else {
-                score += handleSecondThrow();
+            }else if (spare()){
+                ball += 2;
+                score += 10 + nextBall();
+            }else{
+                score += towBallsInFrame();
+                ball +=2;
             }
 
         }
