@@ -25,19 +25,19 @@ public class Game {
         if(firstThrowInFrame == true){
             if(pins == 10){
                 itsCurrentFrame ++;
+                advanceFrame();
             }else{
                 firstThrowInFrame = false;
             }
         }else{
             firstThrowInFrame = true;
-            itsCurrentFrame++;
+            advanceFrame();
         }
-        itsCurrentFrame = Math.min(11, itsCurrentFrame);
     }
 
-
-
-
+    private void advanceFrame() {
+        itsCurrentFrame = Math.min(11, itsCurrentFrame +1);
+    }
 
 
     public int getCurrentFrame() {
