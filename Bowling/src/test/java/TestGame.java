@@ -33,11 +33,22 @@ public class TestGame {
         assertEquals(9, g.scoreForFrame(1));
         assertEquals(18, g.scoreForFrame(2));
     }
-    @Test public void testSimpleSpare(){
+    //@Test
+    public void testSimpleSpare(){
         g.add(3);
         g.add(7);
         g.add(3);
         assertEquals(13, g.scoreForFrame(1));
+    }
+
+    @Test
+    public void testSimpleFrameAfterSpare(){
+        g.add(3);
+        g.add(7);
+        g.add(3);
+        g.add(2);
+        assertEquals(13, g.scoreForFrame(1));
+        assertEquals(18, g.getScore());
     }
 
 }
