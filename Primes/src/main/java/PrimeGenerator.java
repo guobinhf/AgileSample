@@ -33,7 +33,7 @@ public class PrimeGenerator {
     }
 
     private static void crossOutMultiples() {
-        int maxPrimeFactor = calcMaxPrimeFactor();
+        int maxPrimeFactor = determineIterationLimit();
         for(int i =2; i< maxPrimeFactor; i ++){
             if (notCrossed(i)){
                 crossOutMultiples(i);
@@ -51,9 +51,9 @@ public class PrimeGenerator {
         return isCrossed[i] == false;
     }
 
-    private static int calcMaxPrimeFactor() {
-        double maxPrimeFactor = Math.sqrt(isCrossed.length) + 1;
-        return (int)maxPrimeFactor;
+    private static int determineIterationLimit() {
+        double iterationLimit = Math.sqrt(isCrossed.length);
+        return (int)iterationLimit;
     }
 
     private static void initializeArrayOfIntegers(int maxValue) {
