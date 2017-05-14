@@ -64,7 +64,7 @@ public class Game {
         int score =0;
         secondThrow = itsThrows[ball+1];
         if (spare()) {
-            ball += 2;
+            ball += 2; //ball的方式不一样？先不调整
             score += 10 + nextBall();
         } else {
             score += towBallsInFrame();
