@@ -6,7 +6,8 @@ public class TestFrame {
     @Test
     public void testScoreNoThrows(){
         Frame f = new Frame();
-        assertEquals(0, f.getScore());
+        f.add(5);
+        assertEquals(5, f.getScore());
     }
 
 }
