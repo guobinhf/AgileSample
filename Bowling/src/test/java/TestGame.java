@@ -18,13 +18,14 @@ public class TestGame {
         assertEquals(1, g.getCurrentFrame());
     }
 
-   // @Test
+    @Test
     public void testTowThrowsNoMark(){
         g.add(5);
         g.add(4);
         assertEquals(9, g.getScore());
+        assertEquals(1, g.getCurrentFrame());
     }
-  //  @Test
+   @Test
     public void testFourThrowsNoMark(){
         g.add(5);
         g.add(4);
@@ -33,8 +34,9 @@ public class TestGame {
         assertEquals(18, g.getScore());
         assertEquals(9, g.scoreForFrame(1));
         assertEquals(18, g.scoreForFrame(2));
+       assertEquals(2, g.getCurrentFrame());
     }
-    //@Test
+    @Test
     public void testSimpleSpare(){
         g.add(3);
         g.add(7);
@@ -42,7 +44,7 @@ public class TestGame {
         assertEquals(13, g.scoreForFrame(1));
     }
 
- //   @Test
+    @Test
     public void testSimpleFrameAfterSpare(){
         g.add(3);
         g.add(7);
