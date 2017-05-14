@@ -11,10 +11,11 @@ public class TestGame {
         g = new Game();
     }
 
-   // @Test
+    @Test
     public void testOneThrows(){
         g.add(5);
         assertEquals(5, g.getScore());
+        assertEquals(1, g.getCurrentFrame());
     }
 
    // @Test
@@ -41,7 +42,7 @@ public class TestGame {
         assertEquals(13, g.scoreForFrame(1));
     }
 
-    @Test
+ //   @Test
     public void testSimpleFrameAfterSpare(){
         g.add(3);
         g.add(7);
