@@ -32,16 +32,16 @@ public class PrimeGeneratorTest {
     @Test
     public void testExhaustive(){
         for(int i =2; i < 500; i ++){
-            verfiyPrimeList(PrimeGenerator.generatePrimes(i));
+            verifyPrimeList(PrimeGenerator.generatePrimes(i));
         }
     }
 
-    private void verfiyPrimeList(int[] list){
+    private void verifyPrimeList(int[] list){
         for(int i =0;i < list.length; ++i){
-            verfiyPrime(list[i]);
+            verifyPrime(list[i]);
         }
     }
-    private void verfiyPrime(int n){
+    private void verifyPrime(int n){
         for (int factor = 2 ; factor< n ; factor++){
             assert(n % factor != 0);
         }
