@@ -6,7 +6,8 @@ public class Game {
     private int itsScore;
     private int[] itsThrows = new int[21]; //最大投掷数
     private int itsCurrentThrow = 0;
-
+    private int itsCurrentFrame=0;
+    private boolean firstThrow = true;
     public int getScore() {
         return itsScore;
     }
@@ -15,6 +16,12 @@ public class Game {
     public void add(int pins) {
         itsThrows[itsCurrentThrow++] = pins;
         itsScore += pins;
+        if(firstThrow == true){
+            firstThrow = false;
+            itsCurrentFrame++;
+        }else{
+            firstThrow = true;
+        }
     }
 
     public int scoreForFrame(int thrFrame) {
@@ -34,6 +41,6 @@ public class Game {
     }
 
     public int getCurrentFrame() {
-        return 1 + (itsCurrentThrow -1)/2;
+        return itsCurrentFrame;
     }
 }
