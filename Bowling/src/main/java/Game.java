@@ -39,11 +39,11 @@ public class Game {
         int score = 0;
         for (int currentFrame = 0; currentFrame < thrFrame; currentFrame++) {
             if(strike()){
+                score += 10 + netTwoBallsForStrike();
                 ball++;
-                score += 10 + netTwoBalls();
             }else if (spare()){
+                score += 10 + nextBallForSpare();
                 ball += 2;
-                score += 10 + nextBall();
             }else{
                 score += towBallsInFrame();
                 ball +=2;
@@ -53,8 +53,8 @@ public class Game {
         return score;
     }
 
-    private int netTwoBalls() {
-        return itsThrows[ball] + itsThrows[ball+1];
+    private int netTwoBallsForStrike() {
+        return itsThrows[ball +1] + itsThrows[ball+2];
     }
 
     private boolean strike() {
@@ -65,7 +65,7 @@ public class Game {
         int score =0;
         if (spare()) {
             ball += 2; //ball的方式不一样？先不调整
-            score += 10 + nextBall();
+            score += 10 + nextBallForSpare();
         } else {
             score += towBallsInFrame();
             ball += 2;
@@ -77,8 +77,8 @@ public class Game {
         return itsThrows[ball] + itsThrows[ball+1];
     }
 
-    private int nextBall() {
-        return itsThrows[ball];
+    private int nextBallForSpare() {
+        return itsThrows[ball +2];
     }
 
     private boolean spare() {
