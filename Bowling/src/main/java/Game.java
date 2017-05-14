@@ -21,7 +21,9 @@ public class Game {
         int ball = 0;
         int score = 0;
         for (int currentFrame = 0; currentFrame < thrFrame; currentFrame++) {
-            score += itsThrows[ball++] + itsThrows[ball++]; 
+            int firstThrow = itsThrows[ball++];
+            int secondThrow = itsThrows[ball++];
+            score += firstThrow + secondThrow;
         }
         return score;
     }
