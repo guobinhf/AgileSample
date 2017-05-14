@@ -30,7 +30,7 @@ public class Game {
             firstThrow = true;
             itsCurrentFrame++;
         }
-        itsCurrentFrame = Math.min(10, itsCurrentFrame);
+        itsCurrentFrame = Math.min(11, itsCurrentFrame);
     }
 
     public int scoreForFrame(int thrFrame) {
