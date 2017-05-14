@@ -41,9 +41,9 @@ public class Game {
         int score = 0;
         for (int currentFrame = 0; currentFrame < thrFrame; currentFrame++) {
              firstThrow = itsThrows[ball];
-            if(firstThrow ==10){
+            if(strike()){
                 ball++;
-                score += 10 + itsThrows[ball] + itsThrows[ball+1];
+                score += 10 + netTwoBalls();
             }else {
                 score += handleSecondThrow();
             }
@@ -52,18 +52,37 @@ public class Game {
         return score;
     }
 
+    private int netTwoBalls() {
+        return itsThrows[ball] + itsThrows[ball+1];
+    }
+
+    private boolean strike() {
+        return  firstThrow ==10;
+    }
+
     private int handleSecondThrow() {
         int score =0;
         secondThrow = itsThrows[ball+1];
-        int frameScore = firstThrow + secondThrow;
-        if (frameScore == 10) {
+        if (spare()) {
             ball += 2;
-            score += frameScore + itsThrows[ball];
+            score += 10 + nextBall();
         } else {
+            score += towBallsInFrame();
             ball += 2;
-            score += frameScore;
         }
         return score;
+    }
+
+    private int towBallsInFrame() {
+        return itsThrows[ball] + itsThrows[ball+1];
+    }
+
+    private int nextBall() {
+        return itsThrows[ball];
+    }
+
+    private boolean spare() {
+        return (itsThrows[ball] + itsThrows[ball+1]) ==10;
     }
 
     public int getCurrentFrame() {
