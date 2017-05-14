@@ -8,8 +8,8 @@ public class Game {
     private int itsCurrentThrow = 0;
     private int itsCurrentFrame = 1;
     private boolean firstThrow = true;
-    public int getScore() {
-        return itsScore;
+    public int score() {
+        return scoreForFrame(getCurrentFrame() -1);
     }
 
     //不需要Throw类，Throw没有行为，只是data
@@ -36,7 +36,7 @@ public class Game {
             int secondThrow = itsThrows[ball++];
             int frameScore = firstThrow + secondThrow;
             if (frameScore == 10) {
-                score += frameScore + itsThrows[ball++];
+                score += frameScore + itsThrows[ball];
             } else {
                 score += frameScore;
             }
